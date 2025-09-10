@@ -9,6 +9,10 @@ class person{
     std::string region;
     int DOB;
 
+    person(){
+        std::cout<<"Default"<<std::endl;
+    }
+
     person(int I,std::string name,std::string re,int d)  // constructor is defined a special program which run automatically when a object is created it does not have return type
     {
         Id=I;
@@ -18,6 +22,14 @@ class person{
 
         std::cout<<"This is a parameterised constructor";
 
+    }
+ // copy constructor
+    person(person& temp)
+    {
+        this->Id=temp.Id;
+        this->name=temp.name;
+        this->DOB=temp.DOB;
+        this->region=temp.region;
     }
     
 };
@@ -29,9 +41,22 @@ int main(){
     std::cout<<p.region<<std::endl;
     std::cout<<p.DOB<<std::endl;
 
+    // to test copy constructor
+
+    person p1;
+    p1.Id=15;
+    p1.name="Anaya";
+    p1.DOB=2002;
+    p1.region="Shimla";
+
+    person p2(p1);
+
+
+    std::cout<<p2.name;
+
 
 
 }
 
 
-// start from 44:37
+//read of shallow and deep copy of the copy constructor done.
